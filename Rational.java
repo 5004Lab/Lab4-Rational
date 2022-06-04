@@ -52,7 +52,7 @@ public class Rational {
     public void setDenominator(int denominator) {
         if (denominator == 0) {
             System.out.println("The value of the denominator passed in is zero.");
-            System.exit(0);
+            //System.exit(0); if the programming exits here, I cannot continue testing the rest of the code. -Xiao
         }
         else {
             this.denominator = denominator;
