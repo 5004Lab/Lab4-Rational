@@ -9,7 +9,7 @@ import org.junit.Test;
  * Summary of the group work:
  * Yuyan Lei is responsible for tests for method norminalize(), toString(), and equals().
  * Jie Zhang is responsible for tests for method ... // Please fill your contributions here
- * Xiao Xu is responsible for tests for method ... // Please fill your contributions here
+ * Xiao Xu is responsible for tests for method SetNumerator(), SetDenominator().
  * Qian Lang is responsible for tests for method ... // Please fill your contributions here
  */
 public class RationalTest {
@@ -18,6 +18,24 @@ public class RationalTest {
 
     @Test
     public void testSetNumerator() {
+        
+        r1 = new Rational(4, 8);
+        r2 = new Rational(1, 2);
+        r3 = new Rational(-3, 5);
+        r4 = new Rational(-4, -5);
+        r5 = new Rational(-2);
+
+        r1.setNumerator(5);
+        assertEquals(5,r1.getNumerator());
+        r2.setNumerator(-1);
+        assertEquals(-1,r2.getNumerator());
+        r3.setNumerator(0);
+        assertEquals(0,r3.getNumerator());
+        r4.setNumerator(10);
+        r4.normalize();
+        assertEquals(-10,r4.getNumerator());
+        r5.setNumerator(1);
+        assertEquals(1, r5.getNumerator());
     }
 
     @Test
