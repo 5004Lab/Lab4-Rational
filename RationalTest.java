@@ -17,8 +17,7 @@ public class RationalTest {
     private Rational r1, r2, r3, r4, r5, r6;
 
     @Test
-    public void testSetNumerator() {
-        
+    public void testSetNumerator() {    
         r1 = new Rational(4, 8);
         r2 = new Rational(1, 2);
         r3 = new Rational(-3, 5);
@@ -26,20 +25,39 @@ public class RationalTest {
         r5 = new Rational(-2);
 
         r1.setNumerator(5);
-        assertEquals(5,r1.getNumerator());
         r2.setNumerator(-1);
-        assertEquals(-1,r2.getNumerator());
         r3.setNumerator(0);
-        assertEquals(0,r3.getNumerator());
         r4.setNumerator(10);
+        r5.setNumerator(1);
+
+        assertEquals(5,r1.getNumerator());
+        assertEquals(-1,r2.getNumerator());
+        assertEquals(0,r3.getNumerator());
         r4.normalize();
         assertEquals(-10,r4.getNumerator());
-        r5.setNumerator(1);
         assertEquals(1, r5.getNumerator());
     }
 
     @Test
     public void testSetDenominator() {
+        r1 = new Rational(4, 8);
+        r2 = new Rational(1, 2);
+        r3 = new Rational(-3, 5);
+        r4 = new Rational(-4, -5);
+        r5 = new Rational(-2);
+
+        r1.setDenominator(5);
+        r2.setDenominator(-1);
+        r3.setDenominator(0);
+        r4.setDenominator(1);
+        r5.setDenominator(3);
+
+        assertEquals(5,r1.getDenominator());
+        r2.normalize();
+        assertEquals(1,r2.getDenominator());
+        assertEquals(5, r3.getDenominator());
+        assertEquals(1,r4.getDenominator());
+        assertEquals(3,r5.getDenominator());
     }
 
     @Test
