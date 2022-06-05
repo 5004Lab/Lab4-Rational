@@ -99,7 +99,6 @@ public class Rational {
     
     /**
     * Check if the rational numbers are equal.
-    * @param The other rational number, Rational r2.
     * @Return true if they are equal, false otherwise.
     * 1/2, 4/8
     * 2/3, 1/3
@@ -130,10 +129,11 @@ public class Rational {
      * @param r1 the first rational number
      * @param r2 the second rational number
      * @return the sum of the two rational numbers
-     edge cases : add(1/1, 2/1) --> 3/1
-                 add(1/8, 2/8) --> 3/8
-                 add(-3/5, 2/5) --> -1/5
-                 add(1/2, -1/2) --> 0
+    edge case:
+    multiply( 0/3, 1/2) -> 0;
+    multiply( 1/2,1/1) -> 1/2;
+    multiply(-1/8,-2/5) -> 2/40;
+    multiply(-1/2,2/5) -> -2/10;
      */
     public static Rational add(Rational r1, Rational r2) {
         int numerator = r1.getNumerator() * r2.getDenominator() + r2.getNumerator() * r1.getDenominator();
@@ -159,18 +159,20 @@ public class Rational {
     
     /**
      * multiply two rational numbers and return their multiplication.
-     * @param r1 the first rational number
-     * @param r2 the second rational number
      * @return the multiplication of the two rational numbers
-     
-     edge case: 
-                multiply( 0/3, 1/2) -> 0;
-                multiply( 1/2,1/1) -> 1/2;
-                multiply(-1/8,-2/5) -> 2/40;
-                multiply(-1/2,2/5) -> -2/10;
+
+    //edge cases:
+    divide(0/1,1/2)   -> 0(whole number)
+    divide(1/2, 3/5)  -> 5/6;
+    divide(-1/5,-5/1) -> 1/25;
+    divide(1/1, 5/1)  -> 1/5
      */
     public static Rational multiply(Rational r1, Rational r2) {
+
         int numerator = r1.getNumerator() * r2.getNumerator();
+        if(r1.getNumerator() == 0 && r2.getNumerator()== 0){
+            return new Rational(0,0);
+        }
         int denominator = r1.getDenominator() * r2.getDenominator();
         return new Rational(numerator, denominator);
     }

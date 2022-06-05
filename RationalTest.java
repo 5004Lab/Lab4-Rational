@@ -1,20 +1,20 @@
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 /**
  * A JUnit test class for the Rational class
  *
  * Summary of the group work:
  * Yuyan Lei is responsible for tests for method norminalize(), toString(), and equals().
- * Jie Zhang is responsible for tests for method ... // Please fill your contributions here
+ * Jie Zhang is responsible for tests for method multiply and divide. // Please fill your contributions here
  * Xiao Xu is responsible for tests for method SetNumerator(), SetDenominator().
  * Qian Lang is responsible for tests for method ... // Please fill your contributions here
  */
 public class RationalTest {
-
     private Rational r1, r2, r3, r4, r5, r6, r7, r8;
+
 
     @Test
     public void testSetNumerator() {    
@@ -164,9 +164,45 @@ public class RationalTest {
 
     @Test
     public void testMultiply() {
+      //edge case:
+        //                multiply( 0/3, 1/2) -> 0;
+        //                multiply( 1/2,1/1) -> 1/2;
+        //                multiply(-1/8,-2/5) -> 2/40;
+        //                multiply(-1/2,2/5) -> -2/10;
+
+        r1 = new Rational(0, 3);
+        r2 = new Rational(1, 2);
+        r3 = new Rational(1, 2);
+        r4 = new Rational(1, 1);
+        r5 = new Rational(-1, 8);
+        r6 = new Rational(-2, 5);
+        r7 = new Rational(-1,2);
+        r8 = new Rational(2,5);
+        //assertEquals(0, Rational.multiply(r1, r2));
+        assertTrue(Rational.multiply(r1, r2).equals(new Rational(0)));
+        assertTrue(Rational.multiply(r3, r4).equals(new Rational(1,2)));
+        assertTrue(Rational.multiply(r5, r6).equals(new Rational(2,40)));
+        assertTrue(Rational.multiply(r7, r8).equals(new Rational(-2,10)));
     }
 
     @Test
+    //edge cases:
+    //               divide(0/1,1/2)   -> 0
+    //               divide(1/2, 3/5)  -> 5/6;
+    //               divide(-1/5,-5/1) -> 1/25;
+    //               divide(1/1, 5/1)  -> 1/5
     public void testDivide() {
+        r1 = new Rational(0, 1);
+        r2 = new Rational(1, 2);
+        r3 = new Rational(1, 2);
+        r4 = new Rational(3, 5);
+        r5 = new Rational(-1, 5);
+        r6 = new Rational(-5, 1);
+        r7 = new Rational(1,1);
+        r8 = new Rational(5,1);
+        assertTrue(Rational.divide(r1, r2).equals(new Rational(0)));
+        assertTrue(Rational.divide(r3, r4).equals(new Rational(5,6)));
+        assertTrue(Rational.divide(r5, r6).equals(new Rational(1,25)));
+        assertTrue(Rational.divide(r7, r8).equals(new Rational(1,5)));
     }
 }
