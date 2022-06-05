@@ -171,7 +171,7 @@ public class Rational {
 
         int numerator = r1.getNumerator() * r2.getNumerator();
         if(r1.getNumerator() == 0 && r2.getNumerator()== 0){
-            return new Rational(0,0);
+            return new Rational(0);
         }
         int denominator = r1.getDenominator() * r2.getDenominator();
         return new Rational(numerator, denominator);
