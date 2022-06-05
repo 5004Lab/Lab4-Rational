@@ -14,7 +14,7 @@ import org.junit.Test;
  */
 public class RationalTest {
 
-    private Rational r1, r2, r3, r4, r5, r6;
+    private Rational r1, r2, r3, r4, r5, r6, r7, r8;
 
     @Test
     public void testSetNumerator() {    
@@ -126,10 +126,40 @@ public class RationalTest {
 
     @Test
     public void testAdd() {
+        r1 = new Rational(1, 1);
+        r2 = new Rational(2,1);
+        assertEquals("3/1", Rational.add(r1, r2).toString());
+
+        r3 = new Rational(1, 8);
+        r4 = new Rational(2,8);
+        assertEquals("24/64", Rational.add(r3, r4).toString());
+
+        r5 = new Rational(-3, 5);
+        r6 = new Rational(2,5);
+        assertEquals("-5/25", Rational.add(r5, r6).toString());
+
+        r7 = new Rational(1, 2);
+        r8 = new Rational(-1,2);
+        assertEquals("0/4", Rational.add(r7, r8).toString());
     }
 
     @Test
     public void testSubtract() {
+        r1 = new Rational(1, 3);
+        r2 = new Rational(1,3);
+        assertEquals("0/9", Rational.subtract(r1, r2).toString());
+
+        r3 = new Rational(4, 5);
+        r4 = new Rational(6,5);
+        assertEquals("-10/25", Rational.subtract(r3, r4).toString());
+
+        r5 = new Rational(2, 7);
+        r6 = new Rational(1,7);
+        assertEquals("7/49", Rational.subtract(r5, r6).toString());
+
+        r7 = new Rational(-3, 2);
+        r8 = new Rational(-5,2);
+        assertEquals("4/4", Rational.subtract(r7, r8).toString());
     }
 
     @Test
