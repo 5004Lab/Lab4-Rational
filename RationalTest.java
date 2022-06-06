@@ -8,9 +8,9 @@ import static org.junit.Assert.*;
  *
  * Summary of the group work:
  * Yuyan Lei is responsible for tests for method norminalize(), toString(), and equals().
- * Jie Zhang is responsible for tests for method multiply and divide. // Please fill your contributions here
+ * Jie Zhang is responsible for tests for method multiply and divide. 
  * Xiao Xu is responsible for tests for method SetNumerator(), SetDenominator().
- * Qian Lang is responsible for tests for method ... // Please fill your contributions here
+ * Qian Lang is responsible for tests for method add() and substract().
  */
 public class RationalTest {
     private Rational r1, r2, r3, r4, r5, r6, r7, r8;
@@ -58,14 +58,6 @@ public class RationalTest {
         assertEquals(5, r3.getDenominator());
         assertEquals(1,r4.getDenominator());
         assertEquals(3,r5.getDenominator());
-    }
-
-    @Test
-    public void testGetNumerator() {
-    }
-
-    @Test
-    public void testGetDenominator() {
     }
 
     @Test
